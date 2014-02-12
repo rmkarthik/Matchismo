@@ -11,6 +11,7 @@
 
 @interface CardMatchingGame : NSObject
 @property (nonatomic, readonly) NSInteger score;
+@property (nonatomic, getter = isTwoCardMode) BOOL twoCardMode;
 
 - (instancetype) initWithCardCount:(NSUInteger) count
                          usingDeck:(Deck *) deck;
