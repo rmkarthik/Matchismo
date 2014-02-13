@@ -8,7 +8,6 @@
 
 #import "CardGameViewController.h"
 #import "CardMatchingGame.h"
-#import "PlayingCardDeck.h"
 #import "Card.h"
 
 @interface CardGameViewController ()
@@ -49,7 +48,7 @@
 }
 
 - (Deck *) createDeck {
-    return [[PlayingCardDeck alloc] init];
+    return nil;
 }
 
 - (IBAction)selectMode:(UISegmentedControl *)sender {

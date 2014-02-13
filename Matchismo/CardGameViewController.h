@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Deck.h"
 
 @interface CardGameViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+- (Deck *) createDeck;
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2534D90F18ACED18000B0284 /* PlayingCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2534D90E18ACED18000B0284 /* PlayingCardGameViewController.m */; };
 		2544A03218A2303F00B05541 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2544A03118A2303F00B05541 /* PlayingCard.m */; };
 		2544A03518A230AD00B05541 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2544A03418A230AD00B05541 /* Deck.m */; };
 		2544A03818A3785700B05541 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2544A03718A3785700B05541 /* PlayingCardDeck.m */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2534D90D18ACED18000B0284 /* PlayingCardGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardGameViewController.h; sourceTree = "<group>"; };
+		2534D90E18ACED18000B0284 /* PlayingCardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardGameViewController.m; sourceTree = "<group>"; };
 		2544A03018A2303F00B05541 /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCard.h; path = Model/PlayingCard.h; sourceTree = "<group>"; };
 		2544A03118A2303F00B05541 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = "<group>"; };
 		2544A03318A230AD00B05541 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = Model/Deck.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				25603936189FA0F900323B0B /* Main.storyboard */,
 				25603939189FA0F900323B0B /* CardGameViewController.h */,
 				2560393A189FA0F900323B0B /* CardGameViewController.m */,
+				2534D90D18ACED18000B0284 /* PlayingCardGameViewController.h */,
+				2534D90E18ACED18000B0284 /* PlayingCardGameViewController.m */,
 				2544A02F18A22E1D00B05541 /* Model */,
 				2560393C189FA0F900323B0B /* Images.xcassets */,
 				2560392B189FA0F900323B0B /* Supporting Files */,
@@ -291,6 +296,7 @@
 				2544A03818A3785700B05541 /* PlayingCardDeck.m in Sources */,
 				2544A03518A230AD00B05541 /* Deck.m in Sources */,
 				2560395B189FA6E400323B0B /* Card.m in Sources */,
+				2534D90F18ACED18000B0284 /* PlayingCardGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
