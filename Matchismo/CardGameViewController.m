@@ -53,8 +53,8 @@
 }
 
 - (IBAction)selectMode:(UISegmentedControl *)sender {
-    NSLog(@"Selected Mode is %d", sender.selectedSegmentIndex);
     self.game.twoCardMode = sender.selectedSegmentIndex ? YES : NO;
+    NSLog(@"Selected Mode is %hhd", self.game.twoCardMode );
 }
 
 static const BOOL NOTRESET = NO;

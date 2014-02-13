@@ -48,13 +48,21 @@
 - (NSInteger) match:(NSArray *)cards {
     NSInteger score = 0;
     for (PlayingCard *card in cards) {
-        if (self.rank == card.rank) {
-            score += 4;
-        } else if ([self.suit isEqualToString:card.suit]) {
-            score += 1;
-        }
+        score += [self matchCard:card];
+    }
+    if([cards count] > 1) {
+        score += [cards[0] matchCard:cards[1]];
     }
     return score;
+}
+
+- (NSInteger)matchCard:(PlayingCard *) card {
+    if (self.rank == card.rank) {
+        return 4;
+    } else if ([self.suit isEqualToString:card.suit]) {
+        return 1;
+    }
+    return 0;
 }
 
 @end

@@ -11,6 +11,7 @@
 @interface CardMatchingGame()
 @property (nonatomic, readwrite) NSInteger score;
 @property (strong, nonatomic) NSMutableArray *cards;
+@property (nonatomic) NSUInteger chosenCardCount;
 @end
 
 @implementation CardMatchingGame
@@ -50,24 +51,50 @@ static const int CHOOSE_COST = 1;
     if (!card.isMatched) {
         if (card.isChosen) {
             card.chosen = NO;
+            self.chosenCardCount --;
         } else {
-            for (Card *otherCard in self.cards) {
-                if (otherCard.isChosen && !otherCard.isMatched) {
-                    int matchScore = [card match:@[otherCard]];
-                    if (matchScore) {
-                        self.score += matchScore * MATCH_BONUS;
-                        card.matched = YES;
-                        otherCard.matched = YES;
-                    } else {
-                        self.score -= MISMATCH_PENALTY;
-                        otherCard.chosen = NO;
-                    }
+            self.chosenCardCount ++;
+            card.chosen = YES;
+            if(self.isTwoCardMode) {
+                if (self.chosenCardCount == 2 ) {
+                    [self calculateScore:card];
+                }
+            } else {
+                if (self.chosenCardCount == 3 ) {
+                    [self calculateScore:card];
                 }
             }
-            card.chosen = YES;
         }
     }
     self.score -= CHOOSE_COST;
+}
+
+- (void) calculateScore:(Card *) selectedCard {
+    NSMutableArray* alreadySelectedCards = [[NSMutableArray alloc] init];
+    
+    for (Card *otherCard in self.cards) {
+        if (selectedCard != otherCard && otherCard.isChosen && !otherCard.isMatched) {
+            [alreadySelectedCards addObject:otherCard];
+        }
+    }
+    int matchScore = [selectedCard match:alreadySelectedCards];
+    if (matchScore) {
+        self.score += matchScore * MATCH_BONUS;
+        selectedCard.matched = YES;
+        ((Card*)alreadySelectedCards[0]).matched = YES;
+        if(!self.twoCardMode && [alreadySelectedCards count] > 1) {
+            ((Card*)alreadySelectedCards[1]).matched = YES;
+        }
+        self.chosenCardCount = 0;
+    } else {
+        self.score -= MISMATCH_PENALTY;
+        ((Card*)alreadySelectedCards[0]).chosen = NO;
+        self.chosenCardCount --;
+        if(!self.twoCardMode && [alreadySelectedCards count] > 1) {
+            ((Card*)alreadySelectedCards[1]).chosen = NO;
+            self.chosenCardCount --;
+        }
+    }
 }
 
 - (Card *) cardAtIndex:(NSUInteger)index {
